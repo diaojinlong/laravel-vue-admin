@@ -1,0 +1,15 @@
+{
+    "name": "diaojinlong/laravel-vue-admin",
+    "description": "laravel and vue-element-admin",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DiaoJinLong",
+            "email": "diao_jin_long@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+
+}
