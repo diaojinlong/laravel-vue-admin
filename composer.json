@@ -18,7 +18,5 @@
     "autoload": {
         "psr-4": {"DiaoJinLong\\LaravelVueAdmin\\": "src/"}
     },
-    "minimum-stability": "dev",
-    "require": {}
-
+    "minimum-stability": "dev"
 }
