@@ -24,7 +24,7 @@ php artisan vendor:publish --provider="DiaoJinLong\LaravelVueAdmin\LaravelVueAdm
 
 4、修改config/app.php配置文件
 
-	在providers键下新增
+	在providers下新增
 	 DiaoJinLong\LaravelVueAdmin\LaravelVueAdminServiceProvider::class
 	 
 	在aliases下新增
