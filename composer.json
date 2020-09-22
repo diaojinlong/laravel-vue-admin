@@ -9,6 +9,12 @@
             "email": "diao_jin_long@163.com"
         }
     ],
+	"homepage": "https://github.com/diaojinlong/laravel-vue-admin",
+    "keywords": [
+        "Laravel",
+        "Admin",
+        "Vue"
+    ],
     "autoload": {
         "psr-4": {"DiaoJinLong\\LaravelVueAdmin\\": "src/"}
     },
