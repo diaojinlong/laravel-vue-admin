@@ -1,7 +1,7 @@
 {
     "name": "diaojinlong/laravel-vue-admin",
     "description": "laravel and vue-element-admin",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,6 +9,9 @@
             "email": "diao_jin_long@163.com"
         }
     ],
+    "autoload": {
+        "psr-4": {"DiaoJinLong\LaravelVueAdmin\\": "src/"}
+    },
     "minimum-stability": "dev",
     "require": {}
 
