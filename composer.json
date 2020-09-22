@@ -3,6 +3,10 @@
     "description": "laravel and vue-element-admin",
     "type": "library",
     "license": "MIT",
+	"require": {
+		"php": ">=7.0.0",
+        "godruoyi/php-snowflake": "1.0.10"
+    },
     "authors": [
         {
             "name": "DiaoJinLong",
@@ -10,11 +14,7 @@
         }
     ],
 	"homepage": "https://github.com/diaojinlong/laravel-vue-admin",
-    "keywords": [
-        "Laravel",
-        "Admin",
-        "Vue"
-    ],
+    "keywords": ["Laravel", "Admin", "Vue"],
     "autoload": {
         "psr-4": {"DiaoJinLong\\LaravelVueAdmin\\": "src/"}
     },
