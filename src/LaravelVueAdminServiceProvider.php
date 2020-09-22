@@ -4,6 +4,8 @@ namespace DiaoJinLong\LaravelVueAdmin;
 
 use Illuminate\Support\ServiceProvider;
 use DiaoJinLong\LaravelVueAdmin\Middleware\Auth;
+use Godruoyi\Snowflake\Snowflake;
+use Godruoyi\Snowflake\LaravelSequenceResolver;
 
 class LaravelVueAdminServiceProvider extends ServiceProvider
 {
@@ -16,6 +18,15 @@ class LaravelVueAdminServiceProvider extends ServiceProvider
     {
         $this->app->singleton('laravel-vue-admin', function ($app) {
             return new LaravelVueAdmin($app);
+        });
+        $this->app->singleton('snowflake', function () {
+            $snowflake = (new Snowflake())->setStartTimeStamp(
+                strtotime(config('laravel-vue-admin.snowflake.start_time_stamp'))*1000
+            );
+            if(strtolower(config('cache.default')) == 'redis'){
+                $snowflake->setSequenceResolver(new LaravelSequenceResolver($this->app->get('cache')->store()));
+            }
+            return $snowflake;
         });
     }
 

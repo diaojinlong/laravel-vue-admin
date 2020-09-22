@@ -2,11 +2,12 @@
 namespace DiaoJinLong\LaravelVueAdmin\Controllers;
 
 
+
 class IndexController extends BaseController {
 
     public function index()
     {
-        return 123;
+        return '后台首页';
     }
 
 }

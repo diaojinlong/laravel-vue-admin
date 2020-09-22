@@ -16,7 +16,8 @@
     "homepage": "https://github.com/diaojinlong/laravel-vue-admin",
     "keywords": ["Laravel", "Admin", "Vue"],
     "autoload": {
-        "psr-4": {"DiaoJinLong\\LaravelVueAdmin\\": "src/"}
+        "psr-4": {"DiaoJinLong\\LaravelVueAdmin\\": "src/"},
+        "files": ["src/helpers.php"]
     },
     "minimum-stability": "dev"
 }

@@ -9,5 +9,8 @@ return [
             'handle_cors',
             'laravel-vue-admin.auth'
         ]
+    ],
+    'snowflake'=>[
+        'start_time_stamp'=>'2020-10-01'
     ]
 ];
