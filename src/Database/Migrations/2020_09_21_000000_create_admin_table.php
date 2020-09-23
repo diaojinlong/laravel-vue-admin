@@ -123,6 +123,38 @@ class CreateAdminTable extends Migration
     public function seeder()
     {
         $date = date('Y-m-d H:i:s');
+
+        DB::table('role')->insert([
+            'id' => resolve('snowflake')->id(),
+            'name' => '超级管理员',
+            'info' => '该角色拥有后台所有权限',
+            'status' => 1,
+            'created_at' => $date,
+            'updated_at' => $date
+        ]);
+
+        DB::table('admin')->insert([
+            'id' => resolve('snowflake')->id(),
+            'username' => 'admin',
+            'password' => md5(md5(123456) . md5($date)),
+            'real_name' => '超级管理员',
+            'tel' => '',
+            'info' => '我是公司CEO，拥有后台所有权限！',
+            'status' => 1,
+            'created_at' => $date,
+            'updated_at' => $date
+        ]);
+
+        $adminId = DB::table('admin')->value('id');
+        $roleId = DB::table('role')->value('id');
+        DB::table('admin_role')->insert([
+            'id' => resolve('snowflake')->id(),
+            'admin_id' => $adminId,
+            'role_id' => $roleId,
+            'created_at' => $date,
+            'updated_at' => $date
+        ]);
+
         $menus = array(
             [
                 'api' => '',
@@ -532,6 +564,17 @@ class CreateAdminTable extends Migration
         DB::table('menu')->insert($data);
 
 
+        $menuIds = DB::table('menu')->pluck('id');
+        $roleId = DB::table('role')->value('id');
+        foreach ($menuIds as $menuId) {
+            DB::table('role_menu')->insert([
+                'id' => resolve('snowflake')->id(),
+                'role_id' => $roleId,
+                'menu_id' => $menuId,
+                'created_at' => $date,
+                'updated_at' => $date
+            ]);
+        }
     }
 
     public function treeToMenuSeeder($menus, &$data, $pid=0)

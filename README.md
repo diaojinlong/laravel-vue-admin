@@ -8,30 +8,32 @@ vue-element-admin网站：
 https://panjiachen.github.io/vue-element-admin-site/zh/
 
 
-#安装并运行
+# 安装并运行
 
 1、安装laravel框架(建议laravel5.8)
 
-composer create-project --prefer-dist laravel/laravel project-name
+    composer create-project --prefer-dist laravel/laravel project-name
 
 2、安装laravel-vue-admin扩展包
 
-composer require diaojinlong/laravel-vue-admin
+    composer require diaojinlong/laravel-vue-admin
 
-3、新增laravel-vue-admin配置文件
+3、修改config/app.php配置文件
 
-php artisan vendor:publish --provider="DiaoJinLong\LaravelVueAdmin\LaravelVueAdminServiceProvider"
+    在providers下新增
+    DiaoJinLong\LaravelVueAdmin\LaravelVueAdminServiceProvider::class
 
-4、修改config/app.php配置文件
+    在aliases下新增
+    'LaravelVueAdmin' => DiaoJinLong\LaravelVueAdmin\Facades\LaravelVueAdmin::class
 
-	在providers下新增
-	 DiaoJinLong\LaravelVueAdmin\LaravelVueAdminServiceProvider::class
-	 
-	在aliases下新增
-	 'LaravelVueAdmin' => DiaoJinLong\LaravelVueAdmin\Facades\LaravelVueAdmin::class
+
+4、新增laravel-vue-admin配置文件
+
+    php artisan vendor:publish --provider="DiaoJinLong\LaravelVueAdmin\LaravelVueAdminServiceProvider"  --force
+
 
 5、运行数据填充
-	
-	php artisan migrate
+
+    php artisan migrate
 
 

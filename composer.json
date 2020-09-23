@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0.0",
-        "godruoyi/php-snowflake": "1.0.*"
+        "godruoyi/php-snowflake": "1.0.10",
+        "firebase/php-jwt": "5.2.0"
     },
     "authors": [
         {

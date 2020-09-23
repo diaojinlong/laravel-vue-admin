@@ -37,7 +37,7 @@ class LaravelVueAdminServiceProvider extends ServiceProvider
         $this->addMiddlewareAlias('laravel-vue-admin.auth', Auth::class);
         $this->publishes([
             __DIR__ . '/Config/laravel-vue-admin.php' => config_path('laravel-vue-admin.php'),
-        ]);
+        ], 'config');
     }
 
     protected function addMiddlewareAlias($name, $class)
