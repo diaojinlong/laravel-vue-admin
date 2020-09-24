@@ -8,7 +8,7 @@ vue-element-admin网站：
 https://panjiachen.github.io/vue-element-admin-site/zh/
 
 
-# 安装并运行
+# 安装
 
 1、安装laravel框架(建议laravel5.8)
 
@@ -35,5 +35,41 @@ https://panjiachen.github.io/vue-element-admin-site/zh/
 5、运行数据填充
 
     php artisan migrate
+    
+# 注意事项
+
+1、安装完成laravel请配置redis,登录的用户token需要存储到redis,建议redis驱动使用phpredis不要使用默认的predis。
+    
+    .env中新增
+    REDIS_CLIENT=phpredis
+    
+2、为了提升运行速度建议将缓存也更改为redis
+    
+    .env中修改
+    CACHE_DRIVER=redis
+    
+# 运行
+
+使用postman请求下方接口，如返回json则表明PHP后端接口已运行成功。
+
+    请求地址：http://127.0.0.1/admin/auth/login
+    
+    请求方式：POST
+        
+    请求参数：
+    {
+        "username": "admin",
+        "password": "123456"
+    }
+    
+    
+    返回JSON数据：
+    {
+        "code": 200,
+        "massage": "success",
+        "data": {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOm51bGwsImF1ZCI6bnVsbCwiaWF0IjoxNjAwODU2MzA5LCJkYXRhIjp7ImlkIjo4MDIyODYzNDU4MDc0NjI0LCJ1c2VybmFtZSI6ImFkbWluIn19.H060sDkNsBJ6iFld7D9EOo5J2D7N2pUzjfEAZAw5ffU"
+        }
+    }
 
 

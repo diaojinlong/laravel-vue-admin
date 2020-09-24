@@ -8,7 +8,6 @@ Route::group([
     'middleware' => config('laravel-vue-admin.route.middleware'),
     'namespace' => '\DiaoJinLong\LaravelVueAdmin\Controllers'
 ], function () {
-
     Route::post('auth/login', 'AuthController@login');
 });
 
@@ -20,5 +19,7 @@ Route::group([
 ], function () {
 
     Route::get('index', 'IndexController@index');
+    Route::post('auth/logout', 'AuthController@logout');
+    Route::get('auth/info', 'AuthController@info');
 
 });
